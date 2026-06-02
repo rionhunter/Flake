@@ -17,6 +17,11 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  // Base public path for deployment. GitHub Pages serves project sites from
+  // https://<user>.github.io/<repo>/, so the base must match the repo name.
+  // Override with the BASE_PATH env var (e.g. "/" for a user/org page or a
+  // custom domain).
+  base: process.env.BASE_PATH ?? '/Flake/',
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if

@@ -5,13 +5,13 @@
 
   ## Running the code
 
-  Run `npm i` to install the dependencies.
+  Run `pnpm install` to install the dependencies.
 
-  Run `npm run dev` to start the development server.
+  Run `pnpm run dev` to start the development server.
 
   ## Building for production
 
-  Run `npm run build` to produce a static site in the `dist/` directory.
+  Run `pnpm run build` to produce a static site in the `dist/` directory.
 
   ## Deploying to GitHub Pages
 
@@ -28,6 +28,6 @@
   The site is served from `https://<user>.github.io/Flake/`. The Vite `base`
   path is set to `/Flake/` to match the repository name. If you deploy under a
   different path (for example a user/organization page or a custom domain), set
-  the `BASE_PATH` environment variable when building, e.g. `BASE_PATH=/ npm run
+  the `BASE_PATH` environment variable when building, e.g. `BASE_PATH=/ pnpm run
   build`.
   

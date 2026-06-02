@@ -16,7 +16,16 @@ function figmaAssetResolver() {
   }
 }
 
-export default defineConfig({
+function normalizeBasePath(basePath: string) {
+  return basePath.endsWith('/') ? basePath : `${basePath}/`
+}
+
+export default defineConfig(({ command }) => ({
+  // Base public path for deployment. GitHub Pages serves project sites from
+  // https://<user>.github.io/<repo>/, so the base must match the repo name.
+  // Override with the BASE_PATH env var (e.g. "/" for a user/org page or a
+  // custom domain).
+  base: command === 'build' ? normalizeBasePath(process.env.BASE_PATH ?? '/Flake/') : '/',
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if
@@ -33,4 +42,4 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
-})
+}))
